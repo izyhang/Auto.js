@@ -14,6 +14,14 @@ configurations.all {
 }
 
 android {
+    signingConfigs {
+        key123 {
+            storeFile file('./key.jks')
+            storePassword 'key123'
+            keyAlias 'key123'
+            keyPassword 'key123'
+        }
+    }
     compileSdkVersion versions.compile
     buildToolsVersion versions.buildTool
     defaultConfig {
@@ -24,6 +32,7 @@ android {
         versionName versions.appVersionName
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
+        signingConfig signingConfigs.key123
     }
     buildTypes {
         debug {
